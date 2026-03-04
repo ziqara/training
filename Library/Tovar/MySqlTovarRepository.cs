@@ -1,31 +1,29 @@
-﻿using MySqlX.XDevAPI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data;
-using MySql.Data.MySqlClient;
+using Npgsql;
 
 namespace Library.Tovar
 {
     public class MySqlTovarRepository : ITovarRepository
     {
         private List<Tovar> tovars = new List<Tovar>();
-        private const string connStr = "server=localhost;user=root;database=shoes_shop;password=vertrigo;port=3306;";
+        private const string connStr = "Host=192.168.1.48;Port=5432;Database=shoes_shop;Username=st50-6;Password=506;";
 
         public List<Tovar> ReadAllTovars()
         {
             List<Tovar> tovars = new List<Tovar>();
 
-            using (MySqlConnection connection = new MySqlConnection(connStr))
+            using (NpgsqlConnection connection = new NpgsqlConnection(connStr))
             {
                 connection.Open();
 
                 string sql = "SELECT * FROM tovar";
-                MySqlCommand command = new MySqlCommand(sql, connection);
+                NpgsqlCommand command = new NpgsqlCommand(sql, connection);
 
-                using (MySqlDataReader reader = command.ExecuteReader())
+                using (NpgsqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
@@ -40,7 +38,7 @@ namespace Library.Tovar
                         tovar.discount = reader.GetInt32(7);
                         tovar.stockquantity = reader.GetInt32(8);
                         tovar.description = reader.GetString(9);
-                        tovar.picture = reader.GetString(10);
+                        tovar.picture = reader.IsDBNull(10) ? "" : reader.GetString(10);
 
                         tovars.Add(tovar);
                     }
