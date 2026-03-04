@@ -52,20 +52,20 @@
             this.lblCategory.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblCategory.Location = new System.Drawing.Point(203, 3);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(149, 23);
+            this.lblCategory.Size = new System.Drawing.Size(227, 23);
             this.lblCategory.TabIndex = 1;
             this.lblCategory.Text = "Категория";
-            this.lblCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblName
             // 
             this.lblName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblName.Location = new System.Drawing.Point(358, 3);
+            this.lblName.Location = new System.Drawing.Point(446, 3);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(187, 23);
+            this.lblName.Size = new System.Drawing.Size(216, 23);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Наименование";
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblDesctiption
             // 

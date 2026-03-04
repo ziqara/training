@@ -1,4 +1,5 @@
 ﻿using Library.Tovar;
+using Library.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +17,19 @@ namespace demoex
     {
         private List<Tovar> allTovars_ = new List<Tovar>();
         private MySqlTovarRepository mySqlTovarRepository;
-        public MainForm()
+        private User currentUser;
+        public MainForm(User user)
         {
             InitializeComponent();
             mySqlTovarRepository = new MySqlTovarRepository();
             allTovars_ = mySqlTovarRepository.ReadAllTovars();
             ShowTovars(allTovars_);
+            currentUser = user;
+            if (user == null)
+            {
+                this.Text = $"Товары для гостя";
+            }
+            else { this.Text = $"Товары - {user.name} - {user.role}";}
         }
 
         private void ShowTovars(List<Tovar> allTovars_)

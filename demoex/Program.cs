@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,19 @@ namespace demoex
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            LoginForm loginform = new LoginForm();
+
+            if (loginform.ShowDialog() == DialogResult.OK)
+            {
+                User authenticatedUser = loginform.AuthenticatedUser;
+                Application.Run(new MainForm(authenticatedUser));
+            }
+            else
+            {
+                Application.Exit();
+            }
+            
         }
     }
 }
