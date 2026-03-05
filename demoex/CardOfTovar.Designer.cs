@@ -44,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.discountPrice = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,6 +124,7 @@
             // 
             // lblDiscount
             // 
+            this.lblDiscount.BackColor = System.Drawing.Color.Transparent;
             this.lblDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDiscount.Font = new System.Drawing.Font("Times New Roman", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblDiscount.Location = new System.Drawing.Point(668, -1);
@@ -197,12 +199,23 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Количество на складе:";
             // 
+            // discountPrice
+            // 
+            this.discountPrice.AutoSize = true;
+            this.discountPrice.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            this.discountPrice.Location = new System.Drawing.Point(286, 116);
+            this.discountPrice.Name = "discountPrice";
+            this.discountPrice.Size = new System.Drawing.Size(42, 17);
+            this.discountPrice.TabIndex = 16;
+            this.discountPrice.Text = "label7";
+            // 
             // CardOfTovar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.discountPrice);
             this.Controls.Add(this.lblStockQuantity);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblUnit);
@@ -223,6 +236,7 @@
             this.Size = new System.Drawing.Size(819, 198);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -244,5 +258,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label discountPrice;
     }
 }

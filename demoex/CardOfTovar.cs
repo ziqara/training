@@ -20,6 +20,7 @@ namespace demoex
         public CardOfTovar()
         {
             InitializeComponent();
+            lblDiscount.BackColor = ColorTranslator.FromHtml("#7FFF00");
         }
 
         public Tovar GetTovarInfo()
@@ -29,21 +30,63 @@ namespace demoex
 
         public void ShowTovarInfo(Tovar tovar)
         {
+            this.BackColor = ColorTranslator.FromHtml("#00FA9A");
             tovar_ = tovar;
             lblName.Text = tovar.name;
             lblCategory.Text = tovar.category;
             lblDesctiption.Text = tovar.description;
             lblManufacturer.Text = tovar.manufacturer;
             lblSupplier.Text = tovar.supplier;
-            lblPrice.Text = tovar.price.ToString();
+            ShowDiscountPrice(tovar);
+
             lblUnit.Text = tovar.unit;
-            lblStockQuantity.Text = tovar.stockquantity.ToString();
+            ShowQuantitySock(tovar);
             lblDiscount.Text = tovar.discount.ToString();
 
+            pictureBox1.BackColor = Color.White;
             string fullPath = Path.Combine(Application.StartupPath, "Resources", tovar.picture);
-
             if (File.Exists(fullPath))
-                pictureBox1.Image = Image.FromFile(fullPath);
+               pictureBox1.Image = Image.FromFile(fullPath);
+        }
+
+        public void ShowDiscountPrice(Tovar tovar)
+        {
+            tovar_ = tovar;
+            if (tovar.discount > 15)
+            {
+                lblPrice.Text = tovar.price.ToString();
+                lblPrice.ForeColor = Color.Red;
+                lblPrice.Font = new Font(lblPrice.Font, FontStyle.Strikeout);
+                Discount(tovar);
+                this.BackColor = ColorTranslator.FromHtml("#2E8B57");
+                pictureBox1.BackColor = Color.White;
+            }
+            else
+            {
+                lblPrice.Text = tovar.price.ToString();
+                discountPrice.Hide();
+            }
+        }
+
+        public void Discount(Tovar tovar)
+        {
+            tovar_ = tovar;
+            discountPrice.Text = (tovar.price - (tovar.price / 100 * tovar.discount)).ToString();
+        }
+
+        public void ShowQuantitySock(Tovar tovar)
+        {
+            tovar_ = tovar;
+            if (tovar.stockquantity == 0)
+            {
+                lblStockQuantity.Text = tovar.stockquantity.ToString();
+                lblStockQuantity.ForeColor = Color.Blue;
+                label6.ForeColor = Color.Blue;
+            }
+            else
+            {
+                lblStockQuantity.Text = tovar.stockquantity.ToString();
+            }
         }
     }
 }
