@@ -31,13 +31,14 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.orderButton = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.filtrCbx = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.cardOfTovar1 = new demoex.CardOfTovar();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -73,23 +74,23 @@
             this.pictureBox.TabIndex = 3;
             this.pictureBox.TabStop = false;
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.textBox1.Location = new System.Drawing.Point(467, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 26);
-            this.textBox1.TabIndex = 4;
+            this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txtSearch.Location = new System.Drawing.Point(467, 22);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(216, 26);
+            this.txtSearch.TabIndex = 4;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.label1.Location = new System.Drawing.Point(283, 25);
+            this.label1.Location = new System.Drawing.Point(168, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 19);
+            this.label1.Size = new System.Drawing.Size(298, 19);
             this.label1.TabIndex = 5;
             this.label1.Text = "Поиск по наименованию:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // orderButton
             // 
@@ -103,15 +104,16 @@
             this.orderButton.TabIndex = 6;
             this.orderButton.Text = "Заказы";
             this.orderButton.UseVisualStyleBackColor = false;
+            this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
             // 
-            // comboBox1
+            // filtrCbx
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(689, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 27);
-            this.comboBox1.TabIndex = 7;
+            this.filtrCbx.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.filtrCbx.FormattingEnabled = true;
+            this.filtrCbx.Location = new System.Drawing.Point(689, 22);
+            this.filtrCbx.Name = "filtrCbx";
+            this.filtrCbx.Size = new System.Drawing.Size(169, 27);
+            this.filtrCbx.TabIndex = 7;
             // 
             // btnAdd
             // 
@@ -149,6 +151,17 @@
             this.deleteBtn.Text = "Удалить товар";
             this.deleteBtn.UseVisualStyleBackColor = false;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.label2.Location = new System.Drawing.Point(16, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(196, 47);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Гостю доступен только просмотр товаров!";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Visible = false;
+            // 
             // cardOfTovar1
             // 
             this.cardOfTovar1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -164,13 +177,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 511);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.filtrCbx);
             this.Controls.Add(this.orderButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -190,13 +204,14 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button orderButton;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox filtrCbx;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Label label2;
     }
 }
 

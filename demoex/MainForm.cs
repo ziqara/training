@@ -24,7 +24,9 @@ namespace demoex
             mySqlTovarRepository = new MySqlTovarRepository();
             allTovars_ = mySqlTovarRepository.ReadAllTovars();
             ShowTovars(allTovars_);
+
             currentUser = user;
+            UserRoleMappingForGuest();
             if (user == null)
             {
                 this.Text = $"Товары для гостя";
@@ -44,6 +46,27 @@ namespace demoex
                 card.Margin = new Padding(10);
 
                 flowLayoutPanel1.Controls.Add(card);
+            }
+        }
+
+        private void orderButton_Click(object sender, EventArgs e)
+        {
+            OrdersForm form = new OrdersForm(currentUser);
+            form.Show();
+        }
+
+        private void UserRoleMappingForGuest()
+        {
+            if(currentUser == null)
+            {
+                btnAdd.Enabled = false;
+                deleteBtn.Enabled = false;
+                editBtn.Enabled = false;
+                orderButton.Enabled = false;
+                txtSearch.Enabled = false;
+                filtrCbx.Enabled = false;
+                label2.ForeColor = Color.Red;
+                label2.Visible = true;
             }
         }
     }
