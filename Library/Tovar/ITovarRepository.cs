@@ -9,5 +9,6 @@ namespace Library.Tovar
     public interface ITovarRepository
     {
         List<Tovar> ReadAllTovars();
+        void AddTovar(Tovar tovar);
     }
 }

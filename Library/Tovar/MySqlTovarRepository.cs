@@ -9,7 +9,6 @@ namespace Library.Tovar
 {
     public class MySqlTovarRepository : ITovarRepository
     {
-        private List<Tovar> tovars = new List<Tovar>();
         private const string connStr = "Host=192.168.1.48;Port=5432;Database=shoes_shop;Username=st50-6;Password=506;";
 
         public List<Tovar> ReadAllTovars()
@@ -20,8 +19,8 @@ namespace Library.Tovar
             {
                 connection.Open();
 
-                string sql = "SELECT * FROM tovar";
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection);
+                string readSql = "SELECT * FROM tovar";
+                NpgsqlCommand command = new NpgsqlCommand(readSql, connection);
 
                 using (NpgsqlDataReader reader = command.ExecuteReader())
                 {
@@ -46,6 +45,32 @@ namespace Library.Tovar
             }
 
             return tovars;
+        }
+
+        public void AddTovar(Tovar tovar)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connStr))
+            {
+                connection.Open();
+                string addSql = "INSERT INTO articul, name, unit, price, supplier, manufacturer, category, discount, stockquantity, description, picture" +
+                    "VALUES (@articul, @name, @unit, @price, @supplier, @manufacturer, @category, @discount, @stockquantity, @description, @picture)";
+
+                NpgsqlCommand command = new NpgsqlCommand(addSql, connection);
+
+                command.Parameters.AddWithValue("@articul", tovar.articul);
+                command.Parameters.AddWithValue("@name", tovar.name);
+                command.Parameters.AddWithValue("@unit", tovar.unit);
+                command.Parameters.AddWithValue("@price", tovar.price);
+                command.Parameters.AddWithValue("@supplier", tovar.supplier);
+                command.Parameters.AddWithValue("@manufacturer", tovar.manufacturer);
+                command.Parameters.AddWithValue("@category", tovar.category);
+                command.Parameters.AddWithValue("@discount", tovar.discount);
+                command.Parameters.AddWithValue("@stockquantity", tovar.stockquantity);
+                command.Parameters.AddWithValue("@description", tovar.description);
+                command.Parameters.AddWithValue("@picture", tovar.picture);
+
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

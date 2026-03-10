@@ -45,6 +45,8 @@ namespace demoex
 
                 card.Margin = new Padding(10);
 
+                card.DoubleClick += cardOfTovar1_DoubleClick;
+
                 flowLayoutPanel1.Controls.Add(card);
             }
         }
@@ -61,12 +63,39 @@ namespace demoex
             {
                 btnAdd.Enabled = false;
                 deleteBtn.Enabled = false;
-                editBtn.Enabled = false;
                 orderButton.Enabled = false;
                 txtSearch.Enabled = false;
                 filtrCbx.Enabled = false;
                 label2.ForeColor = Color.Red;
                 label2.Visible = true;
+            }
+        }
+
+        private void cardOfTovar1_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("работает");
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddEditForm addForm = new AddEditForm(mySqlTovarRepository, 0, null);
+            DialogResult result = addForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    mySqlTovarRepository.AddTovar(addForm.GetNewTovar());
+                    allTovars_.Clear();
+                    allTovars_ = mySqlTovarRepository.ReadAllTovars();
+                    ShowTovars(allTovars_);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,
+                                    "Ошибка добавления клиента",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
             }
         }
     }

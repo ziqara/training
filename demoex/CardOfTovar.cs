@@ -21,6 +21,7 @@ namespace demoex
         {
             InitializeComponent();
             lblDiscount.BackColor = ColorTranslator.FromHtml("#7FFF00");
+            AssignDoubleClickRecursive(this);
         }
 
         public Tovar GetTovarInfo()
@@ -86,6 +87,14 @@ namespace demoex
             else
             {
                 lblStockQuantity.Text = tovar.stockquantity.ToString();
+            }
+        }
+
+        private void AssignDoubleClickRecursive(Control parent)
+        {
+            foreach (Control ctrl in parent.Controls)
+            {
+                ctrl.DoubleClick += (s, e) => this.OnDoubleClick(e);
             }
         }
     }

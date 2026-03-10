@@ -28,32 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.orderButton = new System.Windows.Forms.Button();
             this.filtrCbx = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.editBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.cardOfTovar1 = new demoex.CardOfTovar();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.cardOfTovar1);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(225, 66);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(862, 433);
-            this.flowLayoutPanel1.TabIndex = 1;
-            this.flowLayoutPanel1.WrapContents = false;
             // 
             // toolStrip
             // 
@@ -63,16 +51,6 @@
             this.toolStrip.Size = new System.Drawing.Size(1090, 63);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.Image = global::demoex.Properties.Resources.Icon1;
-            this.pictureBox.Location = new System.Drawing.Point(20, 261);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(187, 167);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox.TabIndex = 3;
-            this.pictureBox.TabStop = false;
             // 
             // txtSearch
             // 
@@ -96,7 +74,7 @@
             // 
             this.orderButton.AutoSize = true;
             this.orderButton.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.orderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.orderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.orderButton.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.orderButton.Location = new System.Drawing.Point(949, 22);
             this.orderButton.Name = "orderButton";
@@ -126,25 +104,14 @@
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Добавить товар";
             this.btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // editBtn
-            // 
-            this.editBtn.BackColor = System.Drawing.Color.Chartreuse;
-            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editBtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editBtn.Location = new System.Drawing.Point(7, 119);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(222, 38);
-            this.editBtn.TabIndex = 9;
-            this.editBtn.Text = "Редактировать товар";
-            this.editBtn.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // deleteBtn
             // 
             this.deleteBtn.BackColor = System.Drawing.Color.Chartreuse;
             this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deleteBtn.Location = new System.Drawing.Point(7, 163);
+            this.deleteBtn.Location = new System.Drawing.Point(7, 119);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(222, 38);
             this.deleteBtn.TabIndex = 10;
@@ -162,6 +129,17 @@
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.Visible = false;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.cardOfTovar1);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(225, 66);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(862, 433);
+            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.WrapContents = false;
+            // 
             // cardOfTovar1
             // 
             this.cardOfTovar1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -171,6 +149,17 @@
             this.cardOfTovar1.Name = "cardOfTovar1";
             this.cardOfTovar1.Size = new System.Drawing.Size(822, 200);
             this.cardOfTovar1.TabIndex = 0;
+            this.cardOfTovar1.DoubleClick += new System.EventHandler(this.cardOfTovar1_DoubleClick);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Image = global::demoex.Properties.Resources.Icon1;
+            this.pictureBox.Location = new System.Drawing.Point(20, 261);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(187, 167);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 3;
+            this.pictureBox.TabStop = false;
             // 
             // MainForm
             // 
@@ -179,7 +168,6 @@
             this.ClientSize = new System.Drawing.Size(1090, 511);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.deleteBtn);
-            this.Controls.Add(this.editBtn);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.filtrCbx);
             this.Controls.Add(this.orderButton);
@@ -199,9 +187,6 @@
         }
 
         #endregion
-
-        private CardOfTovar cardOfTovar1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.TextBox txtSearch;
@@ -209,9 +194,10 @@
         private System.Windows.Forms.Button orderButton;
         private System.Windows.Forms.ComboBox filtrCbx;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Label label2;
+        private CardOfTovar cardOfTovar1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 
