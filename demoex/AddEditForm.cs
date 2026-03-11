@@ -58,6 +58,7 @@ namespace demoex
                 newTovar_.discount = (int)numDiscount.Value;
                 newTovar_.stockquantity = (int)numStockQuantity.Value;
                 newTovar_.description = txtDescription.Text;
+                newTovar_.picture = selectedImagePath_;
                 DialogResult = DialogResult.OK;
             }
         }
@@ -76,6 +77,7 @@ namespace demoex
                 numDiscount.Value = 0;
                 numStockQuantity.Value = 0;
                 txtDescription.Text = string.Empty;
+                this.Text = "Добавление товара";
             }
 
             if (type_ == 1)
@@ -90,7 +92,16 @@ namespace demoex
                 numDiscount.Value = newTovar_.discount;
                 numStockQuantity.Value = newTovar_.stockquantity;
                 txtDescription.Text = newTovar_.description;
-                this.Text = "Редактирование клиента " + newTovar_.name;
+                btnImage.Text = "Обновить";
+                // Загружаем картинку
+                string fullPath = Path.Combine(Application.StartupPath, "Resources", newTovar_.picture);
+                if (File.Exists(fullPath))
+                {
+                    imageBox.Image = Image.FromFile(fullPath);
+                    imageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                    selectedImagePath_ = newTovar_.picture; // сохраняем имя файла
+                }
+                this.Text = "Редактирование товара";
             }
         }
 
@@ -135,9 +146,6 @@ namespace demoex
                         imageBox.Image?.Dispose();
                         imageBox.Image = Image.FromFile(targetPath);
                         imageBox.SizeMode = PictureBoxSizeMode.Zoom;
-
-                        MessageBox.Show($"Изображение успешно загружено в папку Resources!\nИмя файла: {fileName}",
-                            "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {

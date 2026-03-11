@@ -44,7 +44,7 @@ namespace demoex
                 card.ShowTovarInfo(t);
 
                 card.Margin = new Padding(10);
-
+                card.Tag = t;
                 card.DoubleClick += cardOfTovar1_DoubleClick;
 
                 flowLayoutPanel1.Controls.Add(card);
@@ -73,7 +73,32 @@ namespace demoex
 
         private void cardOfTovar1_DoubleClick(object sender, EventArgs e)
         {
-            MessageBox.Show("работает");
+            var card = sender as Control;
+            if (card == null || card.Tag == null) return;
+
+            var tovar = card.Tag as Tovar;
+            if (tovar == null) return;
+
+            AddEditForm editForm = new AddEditForm(mySqlTovarRepository, 1, tovar);
+            DialogResult result = editForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    mySqlTovarRepository.EditTovar(editForm.GetNewTovar());
+                    allTovars_.Clear();
+                    allTovars_ = mySqlTovarRepository.ReadAllTovars();
+                    ShowTovars(allTovars_);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,
+                                  "Ошибка редактирования товара",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

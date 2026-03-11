@@ -10,5 +10,6 @@ namespace Library.Tovar
     {
         List<Tovar> ReadAllTovars();
         void AddTovar(Tovar tovar);
+        void EditTovar(Tovar tovar);
     }
 }

@@ -86,6 +86,11 @@
             // 
             this.numPrice.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.numPrice.Location = new System.Drawing.Point(223, 128);
+            this.numPrice.Maximum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(164, 25);
             this.numPrice.TabIndex = 3;
@@ -118,6 +123,11 @@
             // 
             this.numDiscount.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.numDiscount.Location = new System.Drawing.Point(223, 248);
+            this.numDiscount.Maximum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            0});
             this.numDiscount.Name = "numDiscount";
             this.numDiscount.Size = new System.Drawing.Size(164, 25);
             this.numDiscount.TabIndex = 7;
@@ -239,7 +249,7 @@
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(290, 32);
             this.btnImage.TabIndex = 20;
-            this.btnImage.Text = "Загрузить изображение";
+            this.btnImage.Text = "Загрузить";
             this.btnImage.UseVisualStyleBackColor = true;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
@@ -281,6 +291,11 @@
             // 
             this.numStockQuantity.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.numStockQuantity.Location = new System.Drawing.Point(223, 279);
+            this.numStockQuantity.Maximum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            0});
             this.numStockQuantity.Name = "numStockQuantity";
             this.numStockQuantity.Size = new System.Drawing.Size(164, 25);
             this.numStockQuantity.TabIndex = 24;

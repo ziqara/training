@@ -72,5 +72,33 @@ namespace Library.Tovar
                 command.ExecuteNonQuery();
             }
         }
+
+        public void EditTovar(Tovar tovar)
+        {
+            using (NpgsqlConnection connection = new NpgsqlConnection(connStr))
+            {
+                connection.Open();
+                string editSql = "UPDATE tovar SET name = @name, unit = @unit, price = @price, " +
+                                 "supplier = @supplier, manufacturer = @manufacturer, category = @category, " +
+                                 "discount = @discount, stockquantity = @stockquantity, description = @description, " +
+                                 "picture = @picture WHERE articul = @articul";
+
+                NpgsqlCommand command = new NpgsqlCommand(editSql, connection);
+
+                command.Parameters.AddWithValue("@articul", tovar.articul);
+                command.Parameters.AddWithValue("@name", tovar.name);
+                command.Parameters.AddWithValue("@unit", tovar.unit);
+                command.Parameters.AddWithValue("@price", tovar.price);
+                command.Parameters.AddWithValue("@supplier", tovar.supplier);
+                command.Parameters.AddWithValue("@manufacturer", tovar.manufacturer);
+                command.Parameters.AddWithValue("@category", tovar.category);
+                command.Parameters.AddWithValue("@discount", tovar.discount);
+                command.Parameters.AddWithValue("@stockquantity", tovar.stockquantity);
+                command.Parameters.AddWithValue("@description", tovar.description);
+                command.Parameters.AddWithValue("@picture", tovar.picture);
+
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }
