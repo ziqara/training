@@ -32,14 +32,14 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.orderButton = new System.Windows.Forms.Button();
-            this.filtrCbx = new System.Windows.Forms.ComboBox();
+            this.cbxSupplier = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.cardOfTovar1 = new demoex.CardOfTovar();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.cardOfTovar1 = new demoex.CardOfTovar();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +60,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(169, 26);
             this.txtSearch.TabIndex = 4;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // label1
             // 
@@ -68,7 +69,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(274, 19);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Поиск по наименованию:";
+            this.label1.Text = "Поиск:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // orderButton
@@ -85,14 +86,15 @@
             this.orderButton.UseVisualStyleBackColor = false;
             this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
             // 
-            // filtrCbx
+            // cbxSupplier
             // 
-            this.filtrCbx.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.filtrCbx.FormattingEnabled = true;
-            this.filtrCbx.Location = new System.Drawing.Point(785, 100);
-            this.filtrCbx.Name = "filtrCbx";
-            this.filtrCbx.Size = new System.Drawing.Size(169, 27);
-            this.filtrCbx.TabIndex = 7;
+            this.cbxSupplier.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.cbxSupplier.FormattingEnabled = true;
+            this.cbxSupplier.Location = new System.Drawing.Point(785, 100);
+            this.cbxSupplier.Name = "cbxSupplier";
+            this.cbxSupplier.Size = new System.Drawing.Size(169, 27);
+            this.cbxSupplier.TabIndex = 7;
+            this.cbxSupplier.SelectedIndexChanged += new System.EventHandler(this.cbxSupplier_SelectedIndexChanged);
             // 
             // btnAdd
             // 
@@ -142,15 +144,6 @@
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             // 
-            // cardOfTovar1
-            // 
-            this.cardOfTovar1.BackColor = System.Drawing.Color.White;
-            this.cardOfTovar1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cardOfTovar1.Location = new System.Drawing.Point(3, 3);
-            this.cardOfTovar1.Name = "cardOfTovar1";
-            this.cardOfTovar1.Size = new System.Drawing.Size(939, 198);
-            this.cardOfTovar1.TabIndex = 0;
-            // 
             // pictureBox
             // 
             this.pictureBox.Image = global::demoex.Properties.Resources.Icon1;
@@ -164,12 +157,21 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.label3.Location = new System.Drawing.Point(655, 103);
+            this.label3.Location = new System.Drawing.Point(575, 103);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 19);
+            this.label3.Size = new System.Drawing.Size(205, 19);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Сортировка по:";
+            this.label3.Text = "Сортировка по поставщику:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cardOfTovar1
+            // 
+            this.cardOfTovar1.BackColor = System.Drawing.Color.White;
+            this.cardOfTovar1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cardOfTovar1.Location = new System.Drawing.Point(3, 3);
+            this.cardOfTovar1.Name = "cardOfTovar1";
+            this.cardOfTovar1.Size = new System.Drawing.Size(939, 198);
+            this.cardOfTovar1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -180,7 +182,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.filtrCbx);
+            this.Controls.Add(this.cbxSupplier);
             this.Controls.Add(this.orderButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
@@ -203,7 +205,7 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button orderButton;
-        private System.Windows.Forms.ComboBox filtrCbx;
+        private System.Windows.Forms.ComboBox cbxSupplier;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Label label2;
