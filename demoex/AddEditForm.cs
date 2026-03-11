@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace demoex
 {
-    public partial class AddEditForm: Form
+    public partial class AddEditForm : Form
     {
         private Tovar newTovar_;
         private string selectedImagePath_;
@@ -39,6 +41,7 @@ namespace demoex
                 addTovar.discount = (int)numDiscount.Value;
                 addTovar.stockquantity = (int)numStockQuantity.Value;
                 addTovar.description = txtDescription.Text;
+                addTovar.picture = selectedImagePath_;
 
                 newTovar_ = (Tovar)addTovar;
                 DialogResult = DialogResult.OK;
@@ -73,8 +76,6 @@ namespace demoex
                 numDiscount.Value = 0;
                 numStockQuantity.Value = 0;
                 txtDescription.Text = string.Empty;
-
-                selectedImagePath_ = null;
             }
 
             if (type_ == 1)
@@ -102,5 +103,50 @@ namespace demoex
         {
             return newTovar_;
         }
+
+        private void btnImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All Files|*.*";
+                openFileDialog.Title = "Выберите изображение для товара";
+                openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        string sourcePath = openFileDialog.FileName;
+                        string fileName = Path.GetFileName(sourcePath);
+
+                        // Создаем путь к папке Resources в директории приложения
+                        string resourcesPath = Path.Combine(Application.StartupPath, "Resources");
+
+                        // Полный путь к файлу в папке Resources
+                        string targetPath = Path.Combine(resourcesPath, fileName);
+
+                        // Копируем файл в папку Resources
+                        File.Copy(sourcePath, targetPath, true);
+
+                        // Сохраняем только имя файла (без пути)
+                        selectedImagePath_ = fileName;
+
+                        // Загружаем изображение в PictureBox
+                        imageBox.Image?.Dispose();
+                        imageBox.Image = Image.FromFile(targetPath);
+                        imageBox.SizeMode = PictureBoxSizeMode.Zoom;
+
+                        MessageBox.Show($"Изображение успешно загружено в папку Resources!\nИмя файла: {fileName}",
+                            "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ошибка при загрузке изображения: {ex.Message}", "Ошибка",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
+

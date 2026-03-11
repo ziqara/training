@@ -52,8 +52,8 @@ namespace Library.Tovar
             using (NpgsqlConnection connection = new NpgsqlConnection(connStr))
             {
                 connection.Open();
-                string addSql = "INSERT INTO articul, name, unit, price, supplier, manufacturer, category, discount, stockquantity, description, picture" +
-                    "VALUES (@articul, @name, @unit, @price, @supplier, @manufacturer, @category, @discount, @stockquantity, @description, @picture)";
+                string addSql = "INSERT INTO tovar (articul, name, unit, price, supplier, manufacturer, category, discount, stockquantity, description, picture) " +
+               "VALUES (@articul, @name, @unit, @price, @supplier, @manufacturer, @category, @discount, @stockquantity, @description, @picture)";
 
                 NpgsqlCommand command = new NpgsqlCommand(addSql, connection);
 

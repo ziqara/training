@@ -241,6 +241,7 @@
             this.btnImage.TabIndex = 20;
             this.btnImage.Text = "Загрузить изображение";
             this.btnImage.UseVisualStyleBackColor = true;
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // label10
             // 
