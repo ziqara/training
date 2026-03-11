@@ -67,7 +67,9 @@ namespace demoex
                 txtSearch.Enabled = false;
                 filtrCbx.Enabled = false;
                 label2.ForeColor = Color.Red;
-                label2.Visible = true;
+                label2.Text = "Гостю доступен только просмотр товаров!";
+                label1.Visible = false;
+                label3.Visible = false;
             }
         }
 
@@ -122,6 +124,22 @@ namespace demoex
                                     MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            RemoveTovarForm removeForm = new RemoveTovarForm(mySqlTovarRepository);
+
+            // Подписываемся на событие закрытия формы
+            removeForm.FormClosed += (s, args) =>
+            {
+                // После закрытия формы удаления обновляем список товаров
+                allTovars_.Clear();
+                allTovars_ = mySqlTovarRepository.ReadAllTovars();
+                ShowTovars(allTovars_);
+            };
+
+            removeForm.ShowDialog();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using Npgsql;
 
 namespace Library.Tovar
@@ -98,6 +99,35 @@ namespace Library.Tovar
                 command.Parameters.AddWithValue("@picture", tovar.picture);
 
                 command.ExecuteNonQuery();
+            }
+        }
+
+        public void RemoveTovar(Tovar tovar)
+        {
+            using(NpgsqlConnection connection = new NpgsqlConnection(connStr))
+            {
+                connection.Open();
+                string removeSql = "DELETE FROM tovar WHERE articul = @articul";
+
+                NpgsqlCommand command = new NpgsqlCommand(removeSql, connection);
+                command.Parameters.AddWithValue("@articul", tovar.articul);
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public bool HasOrder(string articul)
+        {
+            using(NpgsqlConnection connection = new NpgsqlConnection(connStr))
+            {       
+                connection.Open();
+
+                string checkSql = "SELECT COUNT(*) FROM order_items WHERE product_articul = @articul";
+                NpgsqlCommand command = new NpgsqlCommand(checkSql, connection);
+                command.Parameters.AddWithValue("@articul", articul);
+
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                return count > 0;
             }
         }
     }

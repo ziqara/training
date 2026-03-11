@@ -39,6 +39,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.cardOfTovar1 = new demoex.CardOfTovar();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -48,24 +49,24 @@
             this.toolStrip.AutoSize = false;
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1090, 63);
+            this.toolStrip.Size = new System.Drawing.Size(966, 63);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
             // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.txtSearch.Location = new System.Drawing.Point(467, 22);
+            this.txtSearch.Location = new System.Drawing.Point(785, 68);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(216, 26);
+            this.txtSearch.Size = new System.Drawing.Size(169, 26);
             this.txtSearch.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.label1.Location = new System.Drawing.Point(168, 25);
+            this.label1.Location = new System.Drawing.Point(506, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(298, 19);
+            this.label1.Size = new System.Drawing.Size(274, 19);
             this.label1.TabIndex = 5;
             this.label1.Text = "Поиск по наименованию:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -76,9 +77,9 @@
             this.orderButton.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.orderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.orderButton.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.orderButton.Location = new System.Drawing.Point(949, 22);
+            this.orderButton.Location = new System.Drawing.Point(785, 14);
             this.orderButton.Name = "orderButton";
-            this.orderButton.Size = new System.Drawing.Size(103, 33);
+            this.orderButton.Size = new System.Drawing.Size(169, 38);
             this.orderButton.TabIndex = 6;
             this.orderButton.Text = "Заказы";
             this.orderButton.UseVisualStyleBackColor = false;
@@ -88,7 +89,7 @@
             // 
             this.filtrCbx.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.filtrCbx.FormattingEnabled = true;
-            this.filtrCbx.Location = new System.Drawing.Point(689, 22);
+            this.filtrCbx.Location = new System.Drawing.Point(785, 100);
             this.filtrCbx.Name = "filtrCbx";
             this.filtrCbx.Size = new System.Drawing.Size(169, 27);
             this.filtrCbx.TabIndex = 7;
@@ -98,9 +99,9 @@
             this.btnAdd.BackColor = System.Drawing.Color.Chartreuse;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAdd.Location = new System.Drawing.Point(7, 75);
+            this.btnAdd.Location = new System.Drawing.Point(9, 89);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(222, 38);
+            this.btnAdd.Size = new System.Drawing.Size(214, 38);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Добавить товар";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -111,61 +112,71 @@
             this.deleteBtn.BackColor = System.Drawing.Color.Chartreuse;
             this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deleteBtn.Location = new System.Drawing.Point(7, 119);
+            this.deleteBtn.Location = new System.Drawing.Point(229, 89);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(222, 38);
+            this.deleteBtn.Size = new System.Drawing.Size(214, 38);
             this.deleteBtn.TabIndex = 10;
             this.deleteBtn.Text = "Удалить товар";
             this.deleteBtn.UseVisualStyleBackColor = false;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.label2.Location = new System.Drawing.Point(16, 11);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(73, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(196, 47);
+            this.label2.Size = new System.Drawing.Size(706, 29);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Гостю доступен только просмотр товаров!";
+            this.label2.Text = "Управление товарами";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Visible = false;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.cardOfTovar1);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(225, 66);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 133);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(862, 433);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(966, 428);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             // 
             // cardOfTovar1
             // 
-            this.cardOfTovar1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cardOfTovar1.BackColor = System.Drawing.Color.White;
             this.cardOfTovar1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cardOfTovar1.Location = new System.Drawing.Point(3, 3);
             this.cardOfTovar1.Name = "cardOfTovar1";
-            this.cardOfTovar1.Size = new System.Drawing.Size(822, 200);
+            this.cardOfTovar1.Size = new System.Drawing.Size(939, 198);
             this.cardOfTovar1.TabIndex = 0;
-            this.cardOfTovar1.DoubleClick += new System.EventHandler(this.cardOfTovar1_DoubleClick);
             // 
             // pictureBox
             // 
             this.pictureBox.Image = global::demoex.Properties.Resources.Icon1;
-            this.pictureBox.Location = new System.Drawing.Point(20, 261);
+            this.pictureBox.Location = new System.Drawing.Point(0, 0);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(187, 167);
+            this.pictureBox.Size = new System.Drawing.Size(67, 62);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 3;
             this.pictureBox.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.label3.Location = new System.Drawing.Point(655, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 19);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Сортировка по:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1090, 511);
+            this.ClientSize = new System.Drawing.Size(966, 561);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.btnAdd);
@@ -196,8 +207,9 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Label label2;
-        private CardOfTovar cardOfTovar1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private CardOfTovar cardOfTovar1;
+        private System.Windows.Forms.Label label3;
     }
 }
 

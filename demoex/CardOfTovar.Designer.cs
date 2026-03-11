@@ -61,7 +61,7 @@
             // lblName
             // 
             this.lblName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblName.Location = new System.Drawing.Point(446, 3);
+            this.lblName.Location = new System.Drawing.Point(559, 3);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(216, 23);
             this.lblName.TabIndex = 2;
@@ -127,7 +127,7 @@
             this.lblDiscount.BackColor = System.Drawing.Color.Transparent;
             this.lblDiscount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDiscount.Font = new System.Drawing.Font("Times New Roman", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblDiscount.Location = new System.Drawing.Point(668, -1);
+            this.lblDiscount.Location = new System.Drawing.Point(777, -1);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Size = new System.Drawing.Size(152, 200);
             this.lblDiscount.TabIndex = 9;
@@ -233,7 +233,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Name = "CardOfTovar";
-            this.Size = new System.Drawing.Size(819, 198);
+            this.Size = new System.Drawing.Size(928, 198);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

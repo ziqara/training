@@ -11,5 +11,7 @@ namespace Library.Tovar
         List<Tovar> ReadAllTovars();
         void AddTovar(Tovar tovar);
         void EditTovar(Tovar tovar);
+        void RemoveTovar(Tovar tovar);
+        bool HasOrder(string articul);
     }
 }

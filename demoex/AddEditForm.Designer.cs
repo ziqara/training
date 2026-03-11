@@ -329,7 +329,9 @@
             this.Controls.Add(this.txtUnit);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtArticul);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddEditForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddEditForm";
             this.Load += new System.EventHandler(this.AddEditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
