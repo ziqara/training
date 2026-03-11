@@ -52,6 +52,12 @@
     <Compile Include="AddEditForm.Designer.cs">
       <DependentUpon>AddEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CardOfOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CardOfOrder.Designer.cs">
+      <DependentUpon>CardOfOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="CardOfTovar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </Compile>
     <EmbeddedResource Include="AddEditForm.resx">
       <DependentUpon>AddEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CardOfOrder.resx">
+      <DependentUpon>CardOfOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CardOfTovar.resx">
       <DependentUpon>CardOfTovar.cs</DependentUpon>
