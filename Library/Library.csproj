@@ -124,6 +124,7 @@
     <Compile Include="User\MySqlUserRepository.cs" />
     <Compile Include="User\User.cs" />
     <Compile Include="User\UserModel.cs" />
+    <Compile Include="View\IOrderView.cs" />
     <Compile Include="View\ITovarView.cs" />
   </ItemGroup>
   <ItemGroup>

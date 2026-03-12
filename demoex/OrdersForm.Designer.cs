@@ -28,57 +28,107 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.orderDataTable = new System.Windows.Forms.DataGridView();
-            this.btnCancel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.orderDataTable)).BeginInit();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.deleteBtn = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cardOfOrder1 = new demoex.CardOfOrder();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // orderDataTable
+            // flowLayoutPanel1
             // 
-            this.orderDataTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.orderDataTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.orderDataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.orderDataTable.Dock = System.Windows.Forms.DockStyle.Top;
-            this.orderDataTable.Location = new System.Drawing.Point(0, 0);
-            this.orderDataTable.Name = "orderDataTable";
-            this.orderDataTable.Size = new System.Drawing.Size(1207, 267);
-            this.orderDataTable.TabIndex = 0;
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.cardOfOrder1);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(372, 12);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(572, 412);
+            this.flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel1.WrapContents = false;
             // 
-            // btnCancel
+            // deleteBtn
             // 
-            this.btnCancel.AutoSize = true;
-            this.btnCancel.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCancel.Location = new System.Drawing.Point(514, 295);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(155, 33);
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Закрыть";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.deleteBtn.BackColor = System.Drawing.Color.Chartreuse;
+            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteBtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteBtn.Location = new System.Drawing.Point(75, 322);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(214, 38);
+            this.deleteBtn.TabIndex = 11;
+            this.deleteBtn.Text = "Удалить заказ";
+            this.deleteBtn.UseVisualStyleBackColor = false;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.Chartreuse;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAdd.Location = new System.Drawing.Point(75, 278);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(214, 38);
+            this.btnAdd.TabIndex = 12;
+            this.btnAdd.Text = "Добавить заказ";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox.Image = global::demoex.Properties.Resources.Icon1;
+            this.pictureBox.Location = new System.Drawing.Point(75, 83);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(214, 189);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.TabIndex = 13;
+            this.pictureBox.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(66, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(229, 29);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Управление заказами";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cardOfOrder1
+            // 
+            this.cardOfOrder1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cardOfOrder1.Location = new System.Drawing.Point(3, 3);
+            this.cardOfOrder1.Name = "cardOfOrder1";
+            this.cardOfOrder1.Size = new System.Drawing.Size(522, 126);
+            this.cardOfOrder1.TabIndex = 0;
             // 
             // OrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1207, 352);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.orderDataTable);
+            this.ClientSize = new System.Drawing.Size(950, 436);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.deleteBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "OrdersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Заказы";
-            this.Load += new System.EventHandler(this.OrdersForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.orderDataTable)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView orderDataTable;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private CardOfOrder cardOfOrder1;
+        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.Label label2;
     }
 }

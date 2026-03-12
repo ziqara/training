@@ -88,6 +88,7 @@
             // 
             // cbxSupplier
             // 
+            this.cbxSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSupplier.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.cbxSupplier.FormattingEnabled = true;
             this.cbxSupplier.Location = new System.Drawing.Point(785, 100);

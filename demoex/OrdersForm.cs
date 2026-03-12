@@ -1,5 +1,6 @@
 ﻿using Library;
 using Library.Orders;
+using Library.Tovar;
 using Library.User;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace demoex
             InitializeComponent();
             ordersRepositroy = new MySqlOrdersRepositroy();
             allOrders = ordersRepositroy.GetAllOrders();
-            orderDataTable.Font = new System.Drawing.Font("Times New Roman", 12F);
+            ShowOrders(allOrders);
 
             currentUser = user;
             if (user != null)
@@ -32,12 +33,29 @@ namespace demoex
 
         private void OrdersForm_Load(object sender, EventArgs e)
         {
-            orderDataTable.DataSource = allOrders;
+            
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void ShowOrders(List<Order> allOrders)
         {
-            this.Close();
+            flowLayoutPanel1.Controls.Clear();
+
+            foreach (var t in allOrders)
+            {
+                var card = new CardOfOrder();
+                card.ShowOrderInfo(t);
+
+                card.Margin = new Padding(10);
+                card.Tag = t;
+                card.DoubleClick += cardOfOrder1_DoubleClick;
+
+                flowLayoutPanel1.Controls.Add(card);
+            }
+        }
+
+        private void cardOfOrder1_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("редактирование");
         }
     }
 }
