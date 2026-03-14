@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.deleteBtn = new System.Windows.Forms.Button();
+            this.cardOfOrder1 = new demoex.CardOfOrder();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cardOfOrder1 = new demoex.CardOfOrder();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -49,17 +49,26 @@
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             // 
-            // deleteBtn
+            // cardOfOrder1
             // 
-            this.deleteBtn.BackColor = System.Drawing.Color.Chartreuse;
-            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteBtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deleteBtn.Location = new System.Drawing.Point(75, 322);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(214, 38);
-            this.deleteBtn.TabIndex = 11;
-            this.deleteBtn.Text = "Удалить заказ";
-            this.deleteBtn.UseVisualStyleBackColor = false;
+            this.cardOfOrder1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cardOfOrder1.Location = new System.Drawing.Point(3, 3);
+            this.cardOfOrder1.Name = "cardOfOrder1";
+            this.cardOfOrder1.Size = new System.Drawing.Size(522, 126);
+            this.cardOfOrder1.TabIndex = 0;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Chartreuse;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDelete.Location = new System.Drawing.Point(75, 322);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(214, 38);
+            this.btnDelete.TabIndex = 11;
+            this.btnDelete.Text = "Удалить заказ";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -72,6 +81,7 @@
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Добавить заказ";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // pictureBox
             // 
@@ -94,14 +104,6 @@
             this.label2.Text = "Управление заказами";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cardOfOrder1
-            // 
-            this.cardOfOrder1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cardOfOrder1.Location = new System.Drawing.Point(3, 3);
-            this.cardOfOrder1.Name = "cardOfOrder1";
-            this.cardOfOrder1.Size = new System.Drawing.Size(522, 126);
-            this.cardOfOrder1.TabIndex = 0;
-            // 
             // OrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,7 +113,7 @@
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.deleteBtn);
+            this.Controls.Add(this.btnDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "OrdersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -126,7 +128,7 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private CardOfOrder cardOfOrder1;
-        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label label2;

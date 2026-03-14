@@ -113,9 +113,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrderItem.cs" />
     <Compile Include="Orders\IOrdersRepository.cs" />
     <Compile Include="Orders\MySqlOrdersRepositroy.cs" />
     <Compile Include="Orders\Order.cs" />
+    <Compile Include="PickUpPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tovar\ITovarRepository.cs" />
     <Compile Include="Tovar\MySqlTovarRepository.cs" />
